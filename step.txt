@@ -1,0 +1,15 @@
+1. injt  node application
+    npm init -y
+
+2. installa express
+    npm install express
+
+3. install nodemon
+    npm install nodemon--save-dev (Becaouser nodemon  just need for development environment)
+
+4. installar dotenv
+    npm install dotenv : this module allows load environment varibles
+    create a new file with extension .env, in this file defination the environment variable
+
+
+ 
