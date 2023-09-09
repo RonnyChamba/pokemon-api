@@ -1,0 +1,40 @@
+version: '3'
+services:
+
+  app:
+    image: pokemon:latest
+    ports:
+      - "80:80" # Mapear el puerto 3000 del contenedor al puerto 3000 del host
+    depends_on:
+      - api
+    
+  api:
+    image: node-api:latest # Reemplaza 'nombre_de_tu_imagen_node' por el nombre de tu imagen de la API Node.js
+    ports:
+      - "3000:3000" # Mapear el puerto 3000 del contenedor al puerto 3000 del host
+    depends_on:
+      - mysql # Asegurar que la base de datos esté disponible antes de iniciar la API
+    # environment:
+    #   - MYSQL_HOST=db # Configurar la variable de entorno para la conexión a la base de datos
+    #   - MYSQL_USER=root # Cambia el usuario y la contraseña según tus preferencias
+    #   - MYSQL_PASSWORD=secret
+    #   - MYSQL_DATABASE=mi_base_de_datos # Cambia el nombre de la base de datos según tus preferencias
+
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306" # Mapear el puerto 3306 del contenedor al puerto 3306 del host
+    environment:
+      MYSQL_ROOT_PASSWORD: Losmaspepas2018 # Cambia la contraseña según tus preferencias
+      MYSQL_DATABASE: apijs # Cambia el nombre de la base de datos según tus preferencias
+
+    volumes:
+     - type: volume
+       source: todo-mysql-data
+       target: /var/lib/mysql
+
+
+volumes:
+  todo-mysql-data: 
+
