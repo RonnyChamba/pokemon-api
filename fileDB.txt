@@ -1,0 +1,20 @@
+DROP DATABASE  IF EXISTS  apijs;
+
+CREATE DATABASE  apijs;
+
+USE apijs;
+
+DROP TABLE IF EXISTS pokemons;
+
+DROP  TABLE  IF EXISTS pokemons;
+
+CREATE TABLE pokemons(
+
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(40) NOT NULL,
+    description VARCHAR(100),
+    image VARCHAR(100),
+    height INT,
+    weight INT,
+    serial INT UNIQUE
+);
